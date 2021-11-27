@@ -1,6 +1,6 @@
 const { Plugin } = require("powercord/entities");
 const { getModule } = require("powercord/webpack");
-const fetch = require("node-fetch");
+const { get } = require("powercord/http");
 const { sendBotMessage } = getModule(["sendBotMessage"], false);
 const { getChannelId } = getModule(['getChannelId', 'getLastSelectedChannelId'], false);
 
@@ -11,7 +11,7 @@ let fumoIdSet = new Set();
 module.exports = class fumoApi extends Plugin {
     async startPlugin() {
         powercord.api.commands.registerCommand({ command: "fumo", executor: this.getFumo.bind(this) });
-        rawFumos = await (await fetch("http://fumoapi.herokuapp.com/fumos")).json();
+        rawFumos = (await get("http://fumoapi.herokuapp.com/fumos")).body;
         rawFumos.forEach(fumo => {
             fumoObj[fumo._id] = {_id: fumo._id, URL: fumo.URL};
         });
