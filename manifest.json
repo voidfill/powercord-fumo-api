@@ -1,0 +1,8 @@
+{
+    "name": "fumo-api",
+    "version": "1",
+    "description": "Tool for interacting with the fumo api. Flags: [fumo id], --send, --id",
+    "author": "void",
+    "license": "MIT"
+  }
+  
