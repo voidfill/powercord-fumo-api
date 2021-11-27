@@ -44,7 +44,7 @@ module.exports = class fumoApi extends Plugin {
                 type: "rich",
                 title: "Fumo",
                 description: `${text}`,
-                color: 0x00ff00,
+                color: 3092790,
                 image: {
                     url: fumo.URL,
                     proxy_url: fumo.URL,
